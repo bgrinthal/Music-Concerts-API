@@ -2,7 +2,7 @@
 // add api key here Spotify api
 var apiKey = "9473e5cba5msh74e0809a1e4e6cfp166f95jsnf68009c0712b";
 
-var testContainer = document.getElementById("spotify");
+var spotifyContainer = document.getElementById("spotify");
 
 function start() {
   const options = {
@@ -24,8 +24,9 @@ function start() {
             console.log(response.content[i])
 
             // created variables for the artist name, song name.
+            var position = response.content[i];
             var song = response.content[i];
-            
+            var ranking = position.position;
             var songName = song.track_title;
             var artistName = song.artists[0];
 
@@ -34,19 +35,20 @@ function start() {
             // created a variable for the image
             var img = document.createElement("img");
             img.setAttribute("src", song.thumbnail);
+    
 
             // created a variable for the text
             var p = document.createElement("p");
-            p.textContent = songName + " by " + artistName;
+            p.textContent = ranking + ". " + songName + " by " + artistName;
 
             var a = document.createElement("a");
             a.setAttribute("href", song.track_url);
             a.textContent = "Listen Here";
 
             // appended the text to the div
-            div.append(img, p, a);
+            div.append(p, img, a);
 
-            testContainer.append(div);
+            spotifyContainer.append(div);
         }
     })
     .catch((err) => console.error(err));
