@@ -2,7 +2,7 @@
 // add api key here Spotify api
 var apiKey = "9473e5cba5msh74e0809a1e4e6cfp166f95jsnf68009c0712b";
 
-var testContainer = document.getElementById("test");
+var testContainer = document.getElementById("spotify");
 
 function start() {
   const options = {
