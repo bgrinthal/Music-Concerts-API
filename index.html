@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Music Charts</title>
 </head>
+<div class="container is-fullhd">
 <body>
-    <div id="test"></div>
     
-    <script src="./script.js"></script>
+    <header>
+        <div class="title is-1">
+        Music Charts and Concerts
+        </div>
+    </header>
+    <div class="columns">
+        <div id="billboard" class="column"><span class="title">Top 10 on Billboard</span></div>
+        <div id="spotify" class="column"><span class="title">Top 10 on Spotify</span></div>
+        <div id="ticketmaster" class="column"><span class="title">Concerts</span>
+            <button class="button is-rounded">Search</button>
+        </div>
+    </div>
+    
+    <div class="row" id="weather"><span class="title">Weather</span></div>
+
+    <script src="./assets/js/script.js"></script>
 </body>
+<footer class="m-6"></footer>
+</div>
 </html>
