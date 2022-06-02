@@ -1,55 +1,22 @@
 // variables
 // add api key here Spotify api
-var apiKey = "9473e5cba5msh74e0809a1e4e6cfp166f95jsnf68009c0712b";
+var apiKey = "deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8";
+var musixKey = "30134de52c4876b8e46fb0bc4deac1f1"
+var billBoardKey ='9473e5cba5msh74e0809a1e4e6cfp166f95jsnf68009c0712b'
+
 
 var testContainer = document.getElementById("test");
+var citySearch = document.getElementById('search');
+var submtBtn = document.getElementById('searchBtn')
 
-function start() {
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-      "X-RapidAPI-Key": apiKey,
-    },
-  };
+function run(){
 
-  fetch(
-    "https://spotify23.p.rapidapi.com/charts/?type=regional&country=us&recurrence=daily&date=latest",
-    options
-  )
-    .then((response) => response.json())
-    .then((response) => {
-        for (var i = 0; i < 10; i++) {
-            // console.log the results from the fetch
-            console.log(response.content[i])
-
-            // created variables for the artist name, song name.
-            var song = response.content[i];
-            
-            var songName = song.track_title;
-            var artistName = song.artists[0];
-
-            var div = document.createElement("div");
-
-            // created a variable for the image
-            var img = document.createElement("img");
-            img.setAttribute("src", song.thumbnail);
-
-            // created a variable for the text
-            var p = document.createElement("p");
-            p.textContent = songName + " by " + artistName;
-
-            var a = document.createElement("a");
-            a.setAttribute("href", song.track_url);
-            a.textContent = "Listen Here";
-
-            // appended the text to the div
-            div.append(img, p, a);
-
-            testContainer.append(div);
-        }
-    })
-    .catch((err) => console.error(err));
+  fetch("https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&&city="+ citySearch.value + "&size=50&classificationName=music,concert,-theatre,-musical&apikey=ZNUGzsWtaFDTZqTsYFz6uJO63BV2G624").then(function(res){
+    return res.json()
+  })
+  .then(function(res){
+    console.log(res._embedded.events)
+  })
 }
+submtBtn.addEventListener('click', run)
 
-start();
