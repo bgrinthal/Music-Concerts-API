@@ -6,7 +6,7 @@ var searchBtn = document.getElementById('searchBtn');
 var locations = document.getElementsByClassName("locations");
 var apiKeyWeather = "d0cb8cd20790977405d779960bbd6f85";
 // var apiKeyG = deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8
-
+// var apiKeyKk = "e39f34ac20msh1b788198a77aac4p1f6b56jsnf6ae5a296344"
 
 function searchCity (searchCity) {
     fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + searchCity + "&limit=1&appid=" + apiKey).then(response => {
