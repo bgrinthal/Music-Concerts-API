@@ -4,6 +4,9 @@ var clear = document.getElementById("clear");
 var currentCity = document.getElementById('search');
 var searchBtn = document.getElementById('searchBtn');
 var locations = document.getElementsByClassName("locations");
+var apiKeyWeather = "d0cb8cd20790977405d779960bbd6f85";
+// var apiKeyG = deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8
+
 
 function searchCity (searchCity) {
     fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + searchCity + "&limit=1&appid=" + apiKey).then(response => {
@@ -17,7 +20,7 @@ function searchCity (searchCity) {
 
 function getCurrentWeather (data, cityName) {
 
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&units=imperial&exclude=alerts&appid=${apiKey}`).then(response => {
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&units=imperial&exclude=alerts&appid=${apiKeyWeather}`).then(response => {
         return response.json();
     }).then(data2 => {
         console.log(data2)
