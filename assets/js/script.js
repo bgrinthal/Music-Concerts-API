@@ -47,6 +47,7 @@ function getCurrentWeather (data, cityName) {
 
 
 
+
 clear.addEventListener("click", function () {
     localStorage.clear();
     console.log("cleared")
@@ -74,4 +75,50 @@ function getPastCities () {
 }
 
 getPastCities();
+
+=======
+function ticketMaster() {
+
+// to grab from search box
+// var artistName = document.querySelector('#search-input').value; 
+
+// to test code
+var artistName = "harrystyle"
+
+var queryString = "https://app.ticketmaster.com/discovery/v2/attractions.json?countryCode=US&name=" + artistName + "&classificationName=music&apikey=uUGLWbIhHXmBGx7OldzHzYyJPFEnqPud"
+
+  fetch(queryString, {
+      cache: 'reload',
+  })
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+          console.log(data);
+
+          var nameArtist
+
+      })
+}
+
+
+// billboard top 100 api.  Commented out to not run
+
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Host': 'billboard-api2.p.rapidapi.com',
+// 		'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY'
+// 	}
+// };
+
+// fetch('https://billboard-api2.p.rapidapi.com/hot-100?range=1-10&date=2019-05-11', options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
+
+
+
+start();
+ticketMaster();
 
