@@ -84,7 +84,6 @@ function start() {
 // }
 
 function renderBillboard (artists) {
-
   billboardDiv.innerHTML = "";
   // Artist 1
   var div1 = document.createElement('div');
