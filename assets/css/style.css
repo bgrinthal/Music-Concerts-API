@@ -12,15 +12,6 @@ body {
     text-align: center;
   }
 
-.title {
-  color: #363636;
-  display: flex;
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 3;
-  text-align: center;
-}
-
 .title.is-1 {
   color:white;
   background-color: #363636;
@@ -75,3 +66,7 @@ p {
 .concerts {
   margin-top: 8%;
 }
+
+img .top-10 {
+  height: 50%;
+} 
