@@ -5,6 +5,7 @@ var apiKey = "deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8";
 // var apiKeyKk = "e39f34ac20msh1b788198a77aac4p1f6b56jsnf6ae5a296344";
 
 var spotifyContainer = document.getElementById("spotify");
+var billboardContainer = document.getElementById("billboard");
 
 function start() {
   const options = {
@@ -83,22 +84,19 @@ var queryString = "https://app.ticketmaster.com/discovery/v2/attractions.json?co
 }
 
 
-// billboard top 100 api.  Commented out to not run
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Host': 'billboard-api2.p.rapidapi.com',
+		'X-RapidAPI-Key': 'deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8'
+	}
+};
 
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Host': 'billboard-api2.p.rapidapi.com',
-// 		'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY'
-// 	}
-// };
+fetch('https://billboard-api2.p.rapidapi.com/hot-100?range=1-10&date=2022-06-02', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
 
-// fetch('https://billboard-api2.p.rapidapi.com/hot-100?range=1-10&date=2019-05-11', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
-
-
-
+  
 start();
 ticketMaster();
