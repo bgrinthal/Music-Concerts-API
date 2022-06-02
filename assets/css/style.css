@@ -1,20 +1,69 @@
+body {
+  background-image: linear-gradient(to bottom, rgba(134, 191, 228, 0), rgb(74, 106, 212));
+  color: black;
 
-  .title {
-    color: #363636;
-    display: flex;
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 3;
-    margin:3rem;
-    text-align: center;
-  }
+}
 
-  .title.is-1 {
-      color:white;
-      background-color: #363636;
-      font-size: 3rem;
-      padding:3rem;
+.title {
+  color: #363636;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3;
+  text-align: center;
+}
 
-  }
+.title.is-1 {
+  color:white;
+  background-color: #363636;
+  font-size: 3rem;
+  padding:3rem;
+}
+
+.column {
+  border: 5px solid black;
+  border-radius: 10%;
+  padding: 50px;
+  margin: 2%;
+}
 
 
+.title {
+  text-align: center;
+}
+
+#weather {
+  border: 5px solid black;
+}
+
+footer.content {
+  background-color: black;
+}
+
+.logo {
+  width: 80%;
+  margin-left: 10%;
+}
+
+a {
+  color:purple;
+  margin-left: 5%;
+}
+
+.concerts {
+  margin-left: 20%;
+}
+
+#weather {
+  padding: 30px;
+  border-radius: 10%;
+}
+
+p {
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+.concerts {
+  margin-top: 8%;
+}
