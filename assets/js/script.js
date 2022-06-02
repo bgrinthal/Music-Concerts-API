@@ -76,7 +76,7 @@ function getPastCities () {
 
 getPastCities();
 
-=======
+
 function ticketMaster() {
 
 // to grab from search box
@@ -116,6 +116,8 @@ var queryString = "https://app.ticketmaster.com/discovery/v2/attractions.json?co
 // 	.then(response => response.json())
 // 	.then(response => console.log(response))
 // 	.catch(err => console.error(err));
+
+
 
 
 
