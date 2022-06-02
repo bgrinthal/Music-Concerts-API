@@ -225,7 +225,16 @@ function renderBillboard (artists) {
 
   billboardDiv.append(div10);
 
-
+  image1.classList.add("top-10");
+  image2.classList.add("top-10");
+  image3.classList.add("top-10");
+  image4.classList.add("top-10");
+  image5.classList.add("top-10");
+  image6.classList.add("top-10");
+  image7.classList.add("top-10");
+  image8.classList.add("top-10");
+  image9.classList.add("top-10");
+  image10.classList.add("top-10");
 }
 
 fetch('https://billboard-api2.p.rapidapi.com/hot-100?range=1-10&date=2022-06-02', {
