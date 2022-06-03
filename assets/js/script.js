@@ -215,8 +215,11 @@ function renderBillboard (artists) {
   image9.classList.add("top-10");
   image10.classList.add("top-10");
   
-  lineBreak1.classList.add("breaks");
 }
+
+
+
+
 
 fetch('https://billboard-api2.p.rapidapi.com/hot-100?range=1-10&date=2022-06-02', {
 	method: 'GET',
@@ -233,6 +236,6 @@ fetch('https://billboard-api2.p.rapidapi.com/hot-100?range=1-10&date=2022-06-02'
   
 
 
-  start();
+start();
 
 // ticketMaster();

@@ -71,3 +71,7 @@ p {
   height: 64px;
   margin: 11px;
 }
+
+.bold {
+  font-weight: bolder;
+}
