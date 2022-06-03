@@ -64,7 +64,7 @@ function ticketMaster() {
 // to test code
 var artistName = "harrystyle"
 
-var queryString = "https://app.ticketmaster.com/discovery/v2/attractions.json?countryCode=US&name=" + artistName + "&classificationName=music&apikey=uUGLWbIhHXmBGx7OldzHzYyJPFEnqPud"
+var queryString = "https://app.ticketmaster.com/discovery/v2/attractions.json?countryCode=US&keyword=" + artistName + "&classificationName=music&apikey=uUGLWbIhHXmBGx7OldzHzYyJPFEnqPud"
 
   fetch(queryString, {
       cache: 'reload',
@@ -75,7 +75,6 @@ var queryString = "https://app.ticketmaster.com/discovery/v2/attractions.json?co
       .then(function (data) {
           console.log(data);
 
-          var nameArtist
 
       })
 }
