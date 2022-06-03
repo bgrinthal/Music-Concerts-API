@@ -59,29 +59,31 @@ function start() {
 
 
 
-function ticketMaster() {
-
-// to grab from search box
-// var artistName = document.querySelector('#search-input').value; 
-
-// to test code
-// var artistName = "harrystyle"
-
-var queryString = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&&city=boston&size=50&classificationName=music,concert,-theatre,-musical&apikey=ZNUGzsWtaFDTZqTsYFz6uJO63BV2G624"
-
-  fetch(queryString, {
-      cache: 'reload',
+var apiKey = "deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8";
+var musixKey = "30134de52c4876b8e46fb0bc4deac1f1"
+var billBoardKey ='9473e5cba5msh74e0809a1e4e6cfp166f95jsnf68009c0712b'
+var testContainer = document.getElementById("test");
+var citySearch = document.getElementById('search');
+var submtBtn = document.getElementById('searchBtn')
+function ticketMaster(){
+  fetch("https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&&city="+ citySearch.value + "&size=50&classificationName=music,concert,-theatre,-musical&apikey=ZNUGzsWtaFDTZqTsYFz6uJO63BV2G624").then(function(res){
+    return res.json()
   })
-      .then(function (response) {
-          return response.json();
-      })
-      .then(function (data) {
-          console.log(data);
+  .then(function(res){
+    console.log(res._embedded.events)
+    console.log(res._embedded.events[0]._embedded.venues[0].city.name)
+    console.log(res._embedded.events[0]._embedded.venues[0].name)
+    console.log(res._embedded.events[0]._embedded.attractions[0].name)
+    console.log(res._embedded.events[0].dates.start.localDate)
+    console.log(res._embedded.events[0]._embedded.attractions[0].url)
 
-          var nameArtist
-
-      })
+    
+  })
 }
+
+// submtBtn.addEventListener('click', ticketMaster)
+
+
 
 function renderBillboard (artists) {
   billboardDiv.innerHTML = "";
@@ -236,25 +238,28 @@ function renderBillboard (artists) {
   image8.classList.add("top-10");
   image9.classList.add("top-10");
   image10.classList.add("top-10");
+  
 }
 
-// fetch('https://billboard-api2.p.rapidapi.com/hot-100?range=1-10&date=2022-06-02', {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Host': 'billboard-api2.p.rapidapi.com',
-// 		'X-RapidAPI-Key': 'deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8'
-// 	}
-// })
-// 	.then(response => response.json())
-// 	.then(response => {
-//     // console.log(response)
-//     renderBillboard(response.content);
-//   });
+
+
+
+
+fetch('https://billboard-api2.p.rapidapi.com/hot-100?range=1-10&date=2022-06-02', {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Host': 'billboard-api2.p.rapidapi.com',
+		'X-RapidAPI-Key': 'deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8'
+	}
+})
+	.then(response => response.json())
+	.then(response => {
+    // console.log(response)
+    renderBillboard(response.content);
+  });
   
 
 
-
-
-
 start();
-ticketMaster();
+
+// ticketMaster();
