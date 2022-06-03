@@ -4,6 +4,7 @@ var apiKey = "deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8";
 var billboardDiv = document.getElementById('top-10');
 
 var spotifyContainer = document.getElementById("spotify-artists");
+var ticketMasterContainer = document.getElementById("ticket-master");
 var billboardContainer = document.getElementById("billboard");
 
 function start() {
@@ -70,14 +71,50 @@ function ticketMaster(){
     return res.json()
   })
   .then(function(res){
-    console.log(res._embedded.events)
-    console.log(res._embedded.events[0]._embedded.venues[0].city.name)
-    console.log(res._embedded.events[0]._embedded.venues[0].name)
-    console.log(res._embedded.events[0]._embedded.attractions[0].name)
-    console.log(res._embedded.events[0].dates.start.localDate)
-    console.log(res._embedded.events[0]._embedded.attractions[0].url)
+    console.log(res._embedded.events);
+    console.log(res._embedded.events[0]._embedded.venues[0].city.name);
+    console.log(res._embedded.events[0]._embedded.venues[0].name);
+    console.log(res._embedded.events[0]._embedded.attractions[0].name);
+    console.log(res._embedded.events[0].dates.start.localDate);
+    console.log(res._embedded.events[0]._embedded.attractions[0].url);
 
+    ticketMasterContainer.innerHTML = "";
+        for (var i = 0; i < 6; i++) {
+            // console.log the results from the fetch
+
+            // created variables for the avenue information
+            var artistName = res._embedded.events[i]._embedded.attractions[0].name;
+            var venueName = res._embedded.events[i]._embedded.venues[0].name;
+            var eventDate = res._embedded.events[i].dates.start.localDate;
+            var ticketUrl = res._embedded.events[i]._embedded.attractions[0].url;
+
+            var div = document.createElement("div");
     
+
+            // created a variable for the text
+            var artistNameAp = document.createElement("p");
+            artistNameAp.textContent = (i+1) + ") Artist: " + artistName;
+
+            var venueNameAp = document.createElement("p");
+            venueNameAp.textContent = "Venue: " + venueName;
+
+            var eventDateAp = document.createElement("p");
+            eventDateAp.textContent = "Event Date: " + eventDate;
+
+            var ticketUrlAp = document.createElement("a");
+            ticketUrlAp.setAttribute("href", ticketUrl);
+            ticketUrlAp.textContent = ticketUrl;
+
+            var lineBreak = document.createElement("p");
+            lineBreak.textContent = " "
+            
+
+            // appended the text to the div
+            div.append(artistNameAp, venueNameAp, eventDateAp, ticketUrlAp, lineBreak);
+
+            ticketMasterContainer.append(div);
+        }
+
   })
 }
 
@@ -262,4 +299,3 @@ fetch('https://billboard-api2.p.rapidapi.com/hot-100?range=1-10&date=2022-06-02'
 
 start();
 
-// ticketMaster();
