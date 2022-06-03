@@ -67,7 +67,7 @@ function ticketMaster() {
 // to test code
 // var artistName = "harrystyle"
 
-var queryString = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=pLOeuGq2JL05uEGrZG7DuGWu6sh2OnMz&size=50&classificationName=music"
+var queryString = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&&city=boston&size=50&classificationName=music,concert,-theatre,-musical&apikey=ZNUGzsWtaFDTZqTsYFz6uJO63BV2G624"
 
   fetch(queryString, {
       cache: 'reload',
@@ -78,12 +78,10 @@ var queryString = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=
       .then(function (data) {
           console.log(data);
 
-          
+          var nameArtist
 
       })
 }
-
-
 
 function renderBillboard (artists) {
   billboardDiv.innerHTML = "";
