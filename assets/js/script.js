@@ -398,7 +398,7 @@ function handleSearchFormSubmit(event) {
     })
 }
 
-// displays local storage on page refresh
+// displays local storage on page refresh and displays last search
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem('City Name')) {
     searchHistory = localStorage.getItem("City Name", JSON.stringify(searchHistory));
