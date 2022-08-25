@@ -105,8 +105,12 @@ function ticketMaster() {
         eventDateAp.textContent = "Event Date: " + eventDate;
 
         var ticketUrlAp = document.createElement("a");
-        ticketUrlAp.setAttribute("href", ticketUrl);
-        ticketUrlAp.textContent = ticketUrl;
+        var linkText = document.createTextNode("Buy Tickets Here!");
+        ticketUrlAp.appendChild(linkText);
+        ticketUrlAp.title = "Buy Tickets Here!";
+        ticketUrlAp.href = ticketUrl;
+        // ticketUrlAp.setAttribute("href", ticketUrl);
+        // ticketUrlAp.textContent = ticketUrl;
 
         var lineBreak = document.createElement("p");
         lineBreak.textContent = " "
