@@ -95,9 +95,9 @@ function ticketMaster() {
 
 
         // created a variable for the text
-        var artistNameAp = document.createElement("p");
+        var artistNameAp = document.createElement("h4");
         artistNameAp.textContent = (i + 1) + ") Artist: " + artistName;
-
+        
         var venueNameAp = document.createElement("p");
         venueNameAp.textContent = "Venue: " + venueName;
 
@@ -114,7 +114,6 @@ function ticketMaster() {
 
         var lineBreak = document.createElement("p");
         lineBreak.textContent = " "
-
 
         // appended the text to the div
         div.append(artistNameAp, venueNameAp, eventDateAp, ticketUrlAp, lineBreak);
