@@ -1,18 +1,20 @@
 // var apiKey = "9473e5cba5msh74e0809a1e4e6cfp166f95jsnf68009c0712b";
-var apiKey = "deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8";
-// var apiKeyKk = "e39f34ac20msh1b788198a77aac4p1f6b56jsnf6ae5a296344";
+// var apiKey = "deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8";
+var apiKeyKk = "e39f34ac20msh1b788198a77aac4p1f6b56jsnf6ae5a296344";
+var apiKeyBg = "31ec60b64bmsha0f9939a4727fbep1de647jsn687c4a1db019";
 var billboardDiv = document.getElementById('top-10');
 
 var spotifyContainer = document.getElementById("spotify-artists");
 var ticketMasterContainer = document.getElementById("ticket-master");
 var billboardContainer = document.getElementById("billboard");
 
+
 function start() {
   const spotifyOptions = {
     method: "GET",
     headers: {
       "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-      "X-RapidAPI-Key": apiKey,
+      "X-RapidAPI-Key": "31ec60b64bmsha0f9939a4727fbep1de647jsn687c4a1db019",
     },
   };
 
@@ -23,7 +25,8 @@ function start() {
     .then((response) => response.json())
     .then((response) => {
       spotifyContainer.innerHTML = "";
-      for (var i = 0; i < 10; i++) {
+      console.log(response)
+      for (let i = 0; i < 10; i++) {
         // console.log the results from the fetch
         console.log(response.content[i])
 
@@ -60,7 +63,7 @@ function start() {
 
 
 
-var apiKey = "deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8";
+var apiKey2 = "deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8";
 var musixKey = "30134de52c4876b8e46fb0bc4deac1f1"
 var billBoardKey = '9473e5cba5msh74e0809a1e4e6cfp166f95jsnf68009c0712b'
 var testContainer = document.getElementById("test");
@@ -309,7 +312,7 @@ var searchInput = document.querySelector('#search')
 
 var searchHistory = [];
 
-var APIkey = "91d57b7fd6726c36fc275a86a5361130";
+var APIkey3 = "91d57b7fd6726c36fc275a86a5361130";
 
 
 function handleSearchFormSubmit(event) {
@@ -327,7 +330,7 @@ function handleSearchFormSubmit(event) {
     return;
   }
 
-  var queryString = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInputVal + "&appid=" + APIkey + "&units=imperial"
+  var queryString = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInputVal + "&appid=" + APIkey3 + "&units=imperial"
 
   // first api fetch for current weather info
   fetch(queryString, {
@@ -349,7 +352,7 @@ function handleSearchFormSubmit(event) {
       var currentLat = data.coord.lat;
       var currentLon = data.coord.lon;
 
-      var latlonString = "https://api.openweathermap.org/data/2.5/onecall?lat=" + currentLat + "&lon=" + currentLon + "&exclude=hourly&units=imperial&appid=" + APIkey;
+      var latlonString = "https://api.openweathermap.org/data/2.5/onecall?lat=" + currentLat + "&lon=" + currentLon + "&exclude=hourly&units=imperial&appid=" + APIkey3;
 
       // second api fetch for daily weather info
       fetch(latlonString, {
