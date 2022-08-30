@@ -1,5 +1,3 @@
-// var apiKey = "9473e5cba5msh74e0809a1e4e6cfp166f95jsnf68009c0712b";
-// var apiKey = "deeee58b0fmsh827d4e2c1b2b4b3p118ac7jsncfe4d7ea6eb8";
 var apiKeyKk = "e39f34ac20msh1b788198a77aac4p1f6b56jsnf6ae5a296344";
 var apiKeyBg = "31ec60b64bmsha0f9939a4727fbep1de647jsn687c4a1db019";
 var billboardDiv = document.getElementById('top-10');
@@ -13,13 +11,13 @@ function start() {
   const spotifyOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-      "X-RapidAPI-Key": "73822ecc2bmsh457b5e4e38e6548p145262jsnb20d0b0dcc56",
+      'X-RapidAPI-Key': '5c8888d3d6mshca15aaa2cc37387p166b9ejsn9aaec115ba7f',
+      'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
     },
   };
 
   fetch(
-    "https://spotify23.p.rapidapi.com/charts/?type=regional&country=us&recurrence=daily&date=latest",
+    'https://spotify81.p.rapidapi.com/top_200_tracks',
     spotifyOptions
   )
     .then((response) => response.json())
@@ -28,32 +26,45 @@ function start() {
       console.log(response)
       for (let i = 0; i < 10; i++) {
         // console.log the results from the fetch
-        console.log(response.content[i])
+        console.log(response[i].trackMetadata.artists[0].name)
+        
 
         // created variables for the artist name, song name.
-        var position = response.content[i];
-        var song = response.content[i];
-        var ranking = position.position;
-        var songName = song.track_title;
-        var artistName = song.artists[0];
+        var position = response[i].chartEntryData.currentRank;
+        var song = response[i].trackMetadata.trackName;
+        var songUri = response[i].trackMetadata.trackUri
+        var ranking = response[i].chartEntryData.currentRank;
+        var songName = response[i].trackMetadata.trackName;
+        var artistName = response[i].trackMetadata.artists[0].name;
+        var coverImg = response[i].trackMetadata.displayImageUri
+
+        console.log('URL String: ',songUri.split(':').slice(1).join('/'))
+
+        console.log(song)
+        console.log(ranking)
+        console.log(songName)
+        console.log(artistName)
 
         var div = document.createElement("div");
 
         // created a variable for the image
         var img = document.createElement("img");
-        img.setAttribute("src", song.thumbnail);
+        img.setAttribute("src", coverImg);
 
 
         // created a variable for the text
-        var p = document.createElement("p");
+        var p = document.createElement("h4");
         p.textContent = ranking + ". " + songName + " by " + artistName;
 
         var a = document.createElement("a");
-        a.setAttribute("href", song.track_url);
+        a.setAttribute("href", 'https://open.spotify.com/'+songUri.split(':').slice(1).join('/'));
         a.textContent = "Listen Here";
 
+        var lineBreak = document.createElement("p");
+        lineBreak.textContent = " "
+
         // appended the text to the div
-        div.append(p, img, a);
+        div.append(p, img, lineBreak, a);
 
         spotifyContainer.append(div);
       }
@@ -166,13 +177,14 @@ function renderBillboard(artists) {
     image.src = artists[i].image;
     div.textContent =
       rank.textContent +
-      ". " +
+      ") " +
       title.textContent +
       " by " +
       artist.textContent;
-      image.classList.add("top-10");
-    div.append(lineBreak, image);
-    billboardDiv.append(div);
+      // IMAGE WAS REMOVED BY API (?)  NO LONGER EXISTS
+      // image.classList.add("top-10");
+    // div.append(lineBreak, image);
+    billboardDiv.append(lineBreak, div);
   }
  
 }
