@@ -36,7 +36,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img width="1440" alt="Screen Shot 2022-08-06 at 5 28 43 PM" src="https://user-images.githubusercontent.com/105067005/183266585-ef4356c9-a789-400f-a4a5-688f10f20e3e.png">
+<img width="1440" alt="Screen Shot 2022-08-30 at 12 23 30 PM" src="https://user-images.githubusercontent.com/105067005/187489695-7612419c-41b7-4d55-b04b-a3386b2bec01.png">
+
+<img width="1437" alt="Screen Shot 2022-08-30 at 12 23 39 PM" src="https://user-images.githubusercontent.com/105067005/187489710-d9c823dc-0d6c-4402-8190-d1fc0f5fd92d.png">
 
 
 One stop shop for last minute music and concert lovers.  This app runs in the browser and features dynamically updated CSS and HTML powered by JavaScript.  Uses calls to several API's including Billboard Top 100, Spotify, Ticketmaster, and Open Weather to display popular music and search for venues to watch your favorite artists.
